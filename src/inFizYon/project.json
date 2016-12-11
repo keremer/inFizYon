@@ -1,4 +1,4 @@
-﻿{
+{
   "userSecretsId": "aspnet-inFizYon-49683e9d-f7de-4d4f-ad29-b7a981077dfc",
 
   "dependencies": {
@@ -41,7 +41,7 @@
       "version": "1.0.0-preview2-final",
       "type": "build"
     },
-    "Microsoft.VisualStudio.Web.CodeGenerators.Mvc":  {
+    "Microsoft.VisualStudio.Web.CodeGenerators.Mvc": {
       "version": "1.0.0-preview2-final",
       "type": "build"
     }
