@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using inFizYon.PartyModels;
-namespace inFizYon.AcademyModels.PartyEnrollment
+using inFizYon.ciqModels;
+namespace inFizYon.AcademyModels
 {
         public enum Grade
         {

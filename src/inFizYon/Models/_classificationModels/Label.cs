@@ -6,8 +6,8 @@ namespace inFizYon.Ontology
 {
     public class Label
     {
-        public int LabelID { get; set; }
-        public string Labeltxt { get; set; }
+        public int labelID { get; set; }
+        public string labeltxt { get; set; }
         public enum MetaData : byte
         {
             Custom = 0,
@@ -15,6 +15,7 @@ namespace inFizYon.Ontology
             UniFormat = 2
         };
         public MetaData Origin { get; set; }
-        public virtual ICollection<Phrase> Phrases { get; set; }
+
+        public ICollection<Phrase> Phrases { get; set; }
     }
 }

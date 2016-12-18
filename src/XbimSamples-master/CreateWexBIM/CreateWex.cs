@@ -4,7 +4,7 @@ using Xbim.ModelGeometry.Scene;
 
 namespace CreateWexBIM
 {
-    class Program
+    class CreateWex
     {
         public static void Main()
         {

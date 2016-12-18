@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace inFizYon.AcademyModels.PartyEnrollment
+namespace inFizYon.AcademyModels
 {
     public class Course
     {

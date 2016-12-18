@@ -27,7 +27,7 @@ using Xbim.Ifc4.SharedBldgElements;
 
 namespace HelloWall
 {
-    class Program 
+    class helloWall 
     {
         /// <summary>
         /// This sample demonstrates the minimum steps to create a compliant IFC model that contains a single standard case wall

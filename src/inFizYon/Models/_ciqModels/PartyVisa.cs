@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace inFizYon.PartyModels
+namespace inFizYon.ciqModels
 {
     public class PartyVisa //: IEnumerable<PartyVisa>, IList<PartyVisa>
     {

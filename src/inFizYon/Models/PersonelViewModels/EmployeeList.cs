@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using inFizYon.PartyModels;
+using inFizYon.ciqModels;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 

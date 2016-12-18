@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace inFizYon.PartyModels
+namespace inFizYon.ciqModels
 {
     public partial class PartyeMail
     {

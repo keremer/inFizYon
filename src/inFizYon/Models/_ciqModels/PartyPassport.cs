@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace inFizYon.PartyModels
+namespace inFizYon.ciqModels
 {
     public partial class PartyPassport //: IEnumerable<PartyPassport>, IList<PartyPassport>
     {

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -14,7 +13,22 @@ using inFizYon.Models;
 using inFizYon.Services;
 
 namespace inFizYon
-{
+    {
+        //public class Program
+        //{
+        //    public static void Main(string[] args)
+        //    {
+        //        var host = new WebHostBuilder()
+        //            .UseContentRoot(Directory.GetCurrentDirectory())
+        //            .UseIISIntegration()
+        //            .UseStartup<Startup>()
+        //            .Build();
+
+        //        host.Run();
+        //    }
+        //}
+    }
+
     public class Startup
     {
         public Startup(IHostingEnvironment env)
@@ -45,6 +59,12 @@ namespace inFizYon
             // Add framework services.
             services.AddApplicationInsightsTelemetry(Configuration);
 
+            services.AddDbContext<inFizYonAcademyContext>(options =>
+               options.UseSqlServer(Configuration.GetConnectionString("inFizYonAcademyDb")));
+
+            services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("inFizYonCoreDb")));
+
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
@@ -60,8 +80,9 @@ namespace inFizYon
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, inFizYonAcademyContext academycontext)
         {
+
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
@@ -92,6 +113,7 @@ namespace inFizYon
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
-        }
+
+        AcademyInitializer.inFizYonInitializeAcademy(academycontext);
     }
 }
