@@ -6,7 +6,7 @@ namespace inFizYon.ciqModels
 {
     public partial class PartyReal
     {
-        [Display(Name = "StudentID", Prompt = "Student No")]
+        [Display(Name = "studentID", Prompt = "student No")]
         [Key]
         public int ciqPrID { get; set; }
 

@@ -13,18 +13,18 @@ namespace inFizYon.Data
         public inFizYonAcademyContext(DbContextOptions<inFizYonAcademyContext> options) : base(options)     
         { }           
  
-        public DbSet<PartyReal> Students { get; set; }
-        public DbSet<PartyEvaluation> Evaluations { get; set; }
-        public DbSet<Enrollment> Enrollments { get; set; }
-        public DbSet<Course> Courses { get; set; }
-        public DbSet<Assignment> Assignments { get; set; }
-        public DbSet<Criterion> EvaluationCriteria { get; set; }
+        public DbSet<PartyReal> students { get; set; }
+        public DbSet<PartyEvaluation> evaluations { get; set; }
+        public DbSet<Enrollment> enrollments { get; set; }
+        public DbSet<Course> courses { get; set; }
+        public DbSet<Assignment> assignments { get; set; }
+        public DbSet<Criterion> evaluationCriteria { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Course>().ToTable("Course");
+            modelBuilder.Entity<Course>().ToTable("course");
             modelBuilder.Entity<Enrollment>().ToTable("Enrollment");
-            modelBuilder.Entity<PartyReal>().ToTable("Student");
+            modelBuilder.Entity<PartyReal>().ToTable("student");
             modelBuilder.Entity<PartyEvaluation>().ToTable("Evaluation");
             modelBuilder.Entity<Assignment>().ToTable("Assignment");
             modelBuilder.Entity<Criterion>().ToTable("Criteria");

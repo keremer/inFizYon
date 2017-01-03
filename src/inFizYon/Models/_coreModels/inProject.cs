@@ -21,15 +21,15 @@ namespace inFizYon
         //    this.specSection = new HashSet<specSection>();
         //}
         [Key]
-        [ForeignKey("PhraseRepository")]
+        [ForeignKey("phraseRepository")]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int prjID { get; set; } //Project ID is same as dedicated name phrase ID
 
         public string prjCode { get; set; } //dedicated project codepublic string prjName
         public string prjPlace { get; set; } //i.e. Istanbul Finance Centre
 
-        public virtual ICollection<Phrase> PhraseRepository { get; set; }
-        public virtual ICollection<Package> PackageRepository { get; set; }
+        public virtual ICollection<Phrase> phraseRepository { get; set; }
+        public virtual ICollection<Package> packageRepository { get; set; }
         //public virtual inLocation inLocation { get; set; }
     }
 }

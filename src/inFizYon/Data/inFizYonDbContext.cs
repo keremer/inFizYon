@@ -13,12 +13,12 @@ namespace inFizYon.Data
         public inFizYonDbContext(DbContextOptions<inFizYonDbContext> options)
             : base(options)
         { }
-        public DbSet<Phrase> PhraseSet { get; set; }       //Core Model
-        public virtual DbSet<Package> PackageSet { get; set; }      //Core Model
-        public DbSet<Label> LabelSet { get; set; }        //Autonomous Ontology Model
-        public virtual DbSet<Comment> hasCommentSet { get; set; }  //Core Model
-        public virtual DbSet<inProject> Projects { get; set; }      //Project Model
-        public virtual DbSet<inMF> MFSectionSet { get; set; }       //Semantics Model
+        public DbSet<Phrase> phraseSet { get; set; }                //Core Model
+        public virtual DbSet<Package> packageSet { get; set; }      //Core Model
+        public DbSet<Label> LabelSet { get; set; }                  //Autonomous Ontology Model
+        public virtual DbSet<Comment> hasCommentSet { get; set; }   //Core Model
+        public virtual DbSet<inProject> projects { get; set; }      //Project Model
+        public virtual DbSet<inMF> inMFSet { get; set; }            //Semantics Model
         
         //public virtual DbSet<inUF> inUFSet { get; set; }
         //public virtual DbSet<speccheckList> speccheckListSet { get; set; } 
@@ -28,14 +28,19 @@ namespace inFizYon.Data
             //modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             //throw new UnintentionalCodeFirstException();
 
-            //modelBuilder.Entity<Label>()
-            //    .HasKey(i => new { i..phrsID, t.labelID });
+            modelBuilder.Entity<PhraseLabel>()
+                .HasKey(i => new { i.phrsID, i.labelID });
 
-            //modelBuilder.Entity<Label>()3
-            //    .HasOne(pt => pt.Phrases).WithMany(p => p.)
-            //    .Map(l => l.MapLeftKey("LabelID")
-            //    .MapRightKey("phrsID")
-            //    .ToTable("PhraseLabels"));
+            modelBuilder.Entity("inFizYon.Ontology.PhraseLabel", b =>
+            {
+                b.HasOne("inFizYon.Phrase","Phrase")
+                    .WithMany("labels")
+                    .HasForeignKey("phrsID");
+
+                b.HasOne("inFizYon.Ontology.Label", "Label")
+                   .WithMany("phrases")
+                   .HasForeignKey("labelID");
+            });
         }
     }
 }

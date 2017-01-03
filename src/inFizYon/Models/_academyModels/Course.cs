@@ -9,10 +9,10 @@ namespace inFizYon.AcademyModels
     public class Course
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int CourseID { get; set; }
-        public string Title { get; set; }
-        public int Credits { get; set; }
+        public int courseID { get; set; }
+        public string title { get; set; }
+        public int credits { get; set; }
 
-        public ICollection<Enrollment> Enrollments { get; set; }
+        public ICollection<Enrollment> enrollment { get; set; }
     }
 }

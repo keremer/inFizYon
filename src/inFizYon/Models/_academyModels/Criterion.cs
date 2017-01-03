@@ -7,9 +7,11 @@ namespace inFizYon.AcademyModels
 {
     public class Criterion
     {
+        public enum CriteriaType
+        { goodbad, pScore, pPercent, aScore, aPercent }
         public int CriteriaID { get; set; }
         public string CriteriaDef { get; set; }
-        public int CriteriaPts { get; set; }
+        public CriteriaType? cType { get; set; }
 
         public Assignment Assignment { get; set; } 
     }

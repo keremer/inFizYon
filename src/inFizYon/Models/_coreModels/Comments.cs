@@ -8,8 +8,8 @@ namespace inFizYon
     
     public partial class Comment
     {
-        public int CommentID { get; set; }
-        public String Commenttxt { get; set; }
-        public virtual Phrase Commented { get; set; }
+        public int commentID { get; set; }
+        public string commentTxt { get; set; }
+        public virtual Phrase commented { get; set; }
     }
 }

@@ -7,11 +7,11 @@ namespace inFizYon.AcademyModels
 {
     public class Assignment
     {
-        public int AssignmentID { get; set; }
-        public string AssignmentDef { get; set; }  
-        public DateTime GivenDate { get; set; }
-        public DateTime DueDate { get; set; }
+        public int assignmentID { get; set; }
+        public string assignmentDef { get; set; }  
+        public DateTime givenDate { get; set; }
+        public DateTime dueDate { get; set; }
 
-        public Course Course { get; set; }
+        public Course course { get; set; }
     }
 }

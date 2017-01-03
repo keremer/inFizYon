@@ -36,8 +36,8 @@ namespace inFizYon.ciqModels
         public string ciqPoolregion { get; set; }
         public string ciqZIP { get; set; }
         public string ciqPoolcountry { get; set; }
-        public System.DateTime ciqPooladrValidfrom { get; set; }
-        public Nullable<System.DateTime> ciqPooladrValidto { get; set; }
+        public DateTime ciqPooladrValidfrom { get; set; }
+        public DateTime? ciqPooladrValidto { get; set; }
         public short ciqLocalizationIndex { get; set; }
 
         public virtual ICollection<PartyReal> adresOwners { get; set; }

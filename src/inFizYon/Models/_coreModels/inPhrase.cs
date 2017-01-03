@@ -13,10 +13,11 @@ namespace inFizYon
         public byte phrsComp { get; set; }
         public byte phrsReliance { get; set; }
     
-        public virtual inMF MFSection { get; set; }
+        public virtual inMF inMFSection { get; set; }
         public virtual ICollection<inProject> inProjects { get; set; }
         public virtual ICollection<Comment> comments { get; set; }
         public virtual ICollection<Package> inPackages { get; set; }
+
         public ICollection<Label> labels { get; set; }
     }
 }

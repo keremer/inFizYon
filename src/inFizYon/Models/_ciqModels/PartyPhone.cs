@@ -11,7 +11,7 @@ namespace inFizYon.ciqModels
         public int ciqPhonePID { get; set; }
 
         public string ciqPoolPhonenr { get; set; }
-        public Nullable<System.DateTime> ciqPoolPhonevalto { get; set; }
+        public DateTime? ciqPoolPhonevalto { get; set; }
         public System.DateTime ciqPoolPhonevalfrom { get; set; }
         public string ciqPager { get; set; }
         public byte ciqPoolPhonetype { get; set; }

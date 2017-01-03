@@ -32,7 +32,7 @@ namespace inFizYon.Data
         //// Alternative 2 for file upload: based on dropzone.js
 
         //private const string TempPath = @"~/Uploads";
-        ////@"C:\Projects\inFizYon\Upload"; modified by Kerem Ercoskun 201409191400
+        ////@"C:\projects\inFizYon\Upload"; modified by Kerem Ercoskun 201409191400
 
         //private void ExcelDocViewer(string fileName)
         //{
@@ -74,14 +74,14 @@ namespace inFizYon.Data
         //        foreach (var row in sectiontxt)
         //        {
 
-        //            var sText = row["Title"].ToString();
+        //            var sText = row["title"].ToString();
         //            var secNo = row["Section"].ToString();
         //            {
-        //                var newPhrase = new Phrase { phrsENtxt = sText, phrsTRtxt = "", phrsComp = 50, phrsReliance = 100 };
-        //                context.PhraseSet.Add(newPhrase);
+        //                var newPhrase = new phrase { phrsENtxt = sText, phrsTRtxt = "", phrsComp = 50, phrsReliance = 100 };
+        //                context.phraseSet.Add(newPhrase);
         //                context.SaveChanges();
-        //                var newSection = new inMF { SecNr = secNo, SectionID = newPhrase.phrsID };
-        //                context.MFSectionSet.Add(newSection);
+        //                var newSection = new inMF { secNr = secNo, sectionID = newPhrase.phrsID };
+        //                context.inMFSet.Add(newSection);
         //                context.SaveChanges();
         //            }
         //        };

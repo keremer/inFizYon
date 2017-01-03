@@ -21,12 +21,12 @@ namespace inFizYon.Ontology
         //    this.specSection = new HashSet<specSection>();
         //}
         [Key]
-        [ForeignKey("PhraseRepository")]
+        [ForeignKey("phraseRepository")]
         //[DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int SectionID { get; set; }
+        public int sectionID { get; set; }
 
         [Display(Name = "MasterFormat Section")]
-        public string SecNr { get; set; }
+        public string secNr { get; set; }
         public enum SecSource : byte //may not be necessary - data model changed to a recursive layout.
         {   
             M = 0, //MasterFormat'12
@@ -35,7 +35,7 @@ namespace inFizYon.Ontology
             H = 3  //Hybrid
         }
 
-        public virtual Phrase PhraseRepository { get; set; }
+        public virtual Phrase phraseRepository { get; set; }
         //public virtual ICollection<specSection> secTxts { get; set; }
     }
 }

@@ -12,12 +12,12 @@ namespace inFizYon.AcademyModels
 
         public class Enrollment
         {
-            public int EnrollmentID { get; set; }
-            public int CourseID { get; set; }
-            public int StudentID { get; set; }
-            public Grade? Grade { get; set; }
+            public int enrollmentID { get; set; }
+            public int courseID { get; set; }
+            public int studentID { get; set; }
+            public Grade? grade { get; set; }
 
-            public Course Course { get; set; }
-            public PartyReal Student { get; set; }
+            public Course course { get; set; }
+            public PartyReal student { get; set; }
         }
 }
