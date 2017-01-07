@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using inFizYon.Ontology;
 
 namespace inFizYon.ciqModels
 {
@@ -40,6 +41,6 @@ namespace inFizYon.ciqModels
         public DateTime? ciqPooladrValidto { get; set; }
         public short ciqLocalizationIndex { get; set; }
 
-        public virtual ICollection<PartyReal> adresOwners { get; set; }
+        public virtual ICollection<PartyinAdress> partyinAdress { get; set; }
     }
 }

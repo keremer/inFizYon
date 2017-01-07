@@ -14,20 +14,21 @@ using inFizYon.Services;
 
 namespace inFizYon
     {
-        //public class Program
-        //{
-        //    public static void Main(string[] args)
-        //    {
-        //        var host = new WebHostBuilder()
-        //            .UseContentRoot(Directory.GetCurrentDirectory())
-        //            .UseIISIntegration()
-        //            .UseStartup<Startup>()
-        //            .Build();
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            var host = new WebHostBuilder()
+                .UseKestrel()
+                .UseContentRoot(System.IO.Directory.GetCurrentDirectory())
+                .UseIISIntegration()
+                .UseStartup<Startup>()
+                .Build();
 
-        //        host.Run();
-        //    }
-        //}
+            host.Run();
+        }
     }
+}
 
     public class Startup
     {
@@ -59,10 +60,10 @@ namespace inFizYon
             // Add framework services.
             services.AddApplicationInsightsTelemetry(Configuration);
 
-            services.AddDbContext<inFizYonAcademyContext>(options =>
-               options.UseSqlServer(Configuration.GetConnectionString("inFizYonAcademyDb")));
+            //services.AddDbContext<inFizYonAcademyContext>(options =>
+            //   options.UseSqlServer(Configuration.GetConnectionString("inFizYonAcademyDb")));
 
-            services.AddDbContext<ApplicationDbContext>(options =>
+            services.AddDbContext<inFizYonDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("inFizYonCoreDb")));
 
             services.AddDbContext<ApplicationDbContext>(options =>
@@ -80,7 +81,7 @@ namespace inFizYon
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, inFizYonAcademyContext academycontext)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, inFizYonDbContext infizyoncontext)
         {
 
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
@@ -114,6 +115,8 @@ namespace inFizYon
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
 
-        AcademyInitializer.inFizYonInitializeAcademy(academycontext);
+        //AcademyInitializer.inFizYonInitializeAcademy(academycontext);
+        InfizyonInitializer.inFizYonInitializeCore(infizyoncontext);
+
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using inFizYon.Ontology;
 
 namespace inFizYon.ciqModels
 {
@@ -14,7 +15,7 @@ namespace inFizYon.ciqModels
         public string ciqPartyTuzelTicariUnvan { get; set; }
 
         [Display(Name = "Kayıt Giriş Tarihi", Prompt = "Kayıt Giriş Tarihi")]
-        public System.DateTime ciqPartTuzelvalfrom { get; set; }
+        public DateTime ciqPartTuzelvalfrom { get; set; }
 
         [Display(Name = "Geçerlilik Tarihi", Prompt = "Geçerlilik Tarihi")]
         public Nullable<System.DateTime> ciqPartyvalto { get; set; }
@@ -28,7 +29,7 @@ namespace inFizYon.ciqModels
         [Display(Name = "Kurum Türü", Prompt = "Kurum Türü")]
         public string ciqPartyTuzelintype { get; set; }
 
-        public virtual ICollection<PartyReal> humanResources { get; set; }
+        public virtual ICollection<Affiliation> humanResources { get; set; }
         
     }
 }

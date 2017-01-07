@@ -1,4 +1,8 @@
-﻿using NPOI.SS.UserModel;
+﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.FileProviders;
+using Microsoft.Net.Http.Headers;
+using NPOI.SS.UserModel;
 using NPOI.XSSF.UserModel;
 using System.Diagnostics;
 using System.IO;
@@ -6,14 +10,22 @@ using System.Linq;
 using Xbim.Ifc;
 using Xbim.Ifc4.Interfaces;
 
-namespace inFizYon.Excelio
+namespace inFizYon.Controllers
 {
-    public class excelReport
+    public class ExcelReport
     {
-        public static void Main(string[] args)
+        private readonly IHostingEnvironment env;
+        public ExcelReport(IApplicationBuilder app, IHostingEnvironment env) : base()
+        {
+            app.UseStaticFiles();
+            this.env = env;
+        }
+
+        public static void xlsReport(string[] args)
         {
             //initialize NPOI workbook from the template
-            var workbook = new XSSFWorkbook("template.xlsx");
+
+            var workbook = new XSSFWorkbook(Path.Combine(Directory.GetCurrentDirectory(), @"Uploads\template.xlsx"));
             var sheet = workbook.GetSheet("Spaces");
 
             //Create nice numeric formats with units. Units would need a LOT MORE care in real world. 
@@ -33,7 +45,7 @@ namespace inFizYon.Excelio
 
 
             //Open IFC model. We are not going to change anything in the model so we can leave editor credentials out.
-            using (var model = IfcStore.Open("SampleHouse.ifc"))
+            using (var model = IfcStore.Open(Path.Combine(Directory.GetCurrentDirectory(), @"Uploads\SampleHouse.ifc")))
             {
                 //Get all spaces in the model. 
                 //We use ToList() here to avoid multiple enumeration with Count() and foreach(){}
@@ -49,14 +61,15 @@ namespace inFizYon.Excelio
             }
 
             //save report
-            using (var stream = File.Create("spaces.xlsx"))
+            using (var stream = File.Create(Path.Combine(Directory.GetCurrentDirectory(), @"Reports\spaces.xlsx")))
             {
                 workbook.Write(stream);
                 stream.Close();
             }
 
             //see the result if you have some SW associated with the *.xlsx
-            Process.Start("spaces.xlsx");
+            //FILE NOT FOUND EXCEPTION NOT HANDLED
+            Process.Start(Path.Combine(Directory.GetCurrentDirectory(), @"Reports\spaces.xlsx"));
         }
 
         private static void WriteSpaceRow(IIfcSpace space, ISheet sheet, ICellStyle areaStyle, ICellStyle volumeStyle)

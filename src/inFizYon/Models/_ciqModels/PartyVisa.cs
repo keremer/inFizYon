@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace inFizYon.ciqModels
 {
@@ -8,9 +9,6 @@ namespace inFizYon.ciqModels
         [Key]
         public int ciqPartyVisaID { get; set; }
 
-        public int ciqPartyPasID { get; set; }
-        public int ciqPrID { get; set; }
-        
         [Display(Name = "Vize Türü", Prompt = "Vize Tipi")]
         public string ciqPartyVizetipi { get; set; }
 
@@ -32,8 +30,13 @@ namespace inFizYon.ciqModels
         [Display(Name = "Vize Görüntüsü", Prompt = "Vizenin taranmış görüntüsü")]
         public byte[] ciqPartyVizeimg { get; set; }
 
-        public virtual PartyPassport partyPassport { get; set; }
-        public virtual PartyReal partyReal { get; set; }
+        //public int ciqPartyPasID { get; set; }
+        //[ForeignKey("ciqPartyPasID")]
+        //public virtual PartyPassport partyPassport { get; set; }
+
+        //public int ciqPrID { get; set; }
+        //[ForeignKey("ciqPrID")]
+        //public virtual PartyReal partyReal { get; set; }
       
     }
 }

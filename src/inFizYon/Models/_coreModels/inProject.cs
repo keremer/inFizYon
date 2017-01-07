@@ -14,21 +14,21 @@ namespace inFizYon
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    public partial class inProject // This class will be merged with the IFC_Project later
+    public partial class InProject // This class will be merged with the IFC_Project later
     {
         //public inProje()
         //{
         //    this.specSection = new HashSet<specSection>();
         //}
         [Key]
-        [ForeignKey("phraseRepository")]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int prjID { get; set; } //Project ID is same as dedicated name phrase ID
+        [ForeignKey("phraseRepositoryprjID")]
+        public virtual Phrase projectName { get; set; }
 
         public string prjCode { get; set; } //dedicated project codepublic string prjName
-        public string prjPlace { get; set; } //i.e. Istanbul Finance Centre
-
-        public virtual ICollection<Phrase> phraseRepository { get; set; }
+        public int prjPlace { get; set; } //i.e. Istanbul Finance Centre
+        
         public virtual ICollection<Package> packageRepository { get; set; }
         //public virtual inLocation inLocation { get; set; }
     }

@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "File Upload and Import";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="jumbotron">
+
+    <form method="post" enctype="multipart/form-data" action="~/ImportExportController/DropzoneUpload" class="dropzone" id="dropzoneJsForm">
+        <input type="file" name="files" id="files" multiple />
+        <input type="submit" value="submit" />
+        @Html.AntiForgeryToken()
+    </form>
+
+    <button id="submit-MF">Submit MF Index</button>
+
+</div>
+
+@section scripts {
+    <script type="text/javascript">
+
+        Dropzone.options.dropzoneJsForm = {
+
+            //prevents Dropzone from uploading dropped files immediately
+            autoProcessQueue: false,
+
+            //Note to Admin: YOU MUST IMPLEMENT A CONTROL HERE (OR IN CONTROLLER) TO CHECK UPLOADED FILES AND REDIRECT DOCX OR XLSX UPLOAD
+
+            init: function () {
+                var submitButton = document.querySelector("#submit-MF");
+                var myDropzone = this; //closure
+
+                submitButton.addEventListener("click", function () {
+
+                    //tell Dropzone to process all queued files
+                    myDropzone.processQueue();
+                });
+            }
+        };
+
+    </script>
+}
+

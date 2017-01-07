@@ -14,7 +14,7 @@ namespace inFizYon.Ontology
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    public partial class inMF
+    public partial class InMF
     {
         //public inMF()
         //{
@@ -22,7 +22,7 @@ namespace inFizYon.Ontology
         //}
         [Key]
         [ForeignKey("phraseRepository")]
-        //[DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int sectionID { get; set; }
 
         [Display(Name = "MasterFormat Section")]

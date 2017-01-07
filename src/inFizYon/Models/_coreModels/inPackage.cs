@@ -9,14 +9,12 @@ namespace inFizYon
     {
         [Key]
         public int inputID { get; set; }
-        [ForeignKey("inProject")]
-        public int inProjectID { get; set; }
-        public int inPackageParent { get; set; }
-        public int parentID { get; set; }
-        public int inPackageChild { get; set; }
-        [ForeignKey("phrases")]
-        public int childID { get; set; }
-        ////[DatabaseGenerated(DatabaseGeneratedOption.None)]
+
+        public int inPackageParent { get; set; }//Why? Documentation required
+        public int parentID { get; set; }       //Why? Documentation required
+        public int inPackageChild { get; set; } //Why? Documentation required
+
+        //[DatabaseGenerated(DatabaseGeneratedOption.None)]
         public enum parLevel : byte //may not be necessary - data model changed to a recursive layout.
         {
             Package = 0,
@@ -52,7 +50,12 @@ namespace inFizYon
         public parType pType { get; set; }
         public short parOrder { get; set; }
 
+        public int inProjectID { get; set; }
+        [ForeignKey("inProjectID")]
+        public virtual InProject inProject { get; set; }
+
+        public int childID { get; set; }
+        [ForeignKey("childID")]
         public virtual Phrase phrases { get; set; }
-        public virtual inProject inProject { get; set; }
     }
 }
